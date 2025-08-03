@@ -1,75 +1,192 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
+import type React from "react"
 
-export default function FormularioContacto() {
-  const [nombre, setNombre] = useState("");
-  const [correo, setCorreo] = useState("");
-  const [mensaje, setMensaje] = useState("");
-  const [respuestaUsuario, setRespuestaUsuario] = useState("");
-  const [numero1, setNumero1] = useState(0);
-  const [numero2, setNumero2] = useState(0);
+import { useState, useEffect } from "react"
+import { Mail, User, MessageSquare, Calculator, Send, Phone } from "lucide-react"
 
-  const emailDestino = "Mnee1964@gmail.com"; // Reemplazar con el correo destinatario
+export default function ContactForm() {
+  const [nombre, setNombre] = useState("")
+  const [correo, setCorreo] = useState("")
+  const [mensaje, setMensaje] = useState("")
+  const [respuestaUsuario, setRespuestaUsuario] = useState("")
+  const [numero1, setNumero1] = useState(0)
+  const [numero2, setNumero2] = useState(0)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showSuccess, setShowSuccess] = useState(false)
+
+  const emailDestino = "Mnee1964@gmail.com"
 
   useEffect(() => {
-    setNumero1(Math.floor(Math.random() * 10) + 1);
-    setNumero2(Math.floor(Math.random() * 10) + 1);
-  }, []);
+    setNumero1(Math.floor(Math.random() * 10) + 1)
+    setNumero2(Math.floor(Math.random() * 10) + 1)
+  }, [])
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (parseInt(respuestaUsuario) !== numero1 + numero2) {
-      alert("Respuesta incorrecta, por favor intente nuevamente.");
-      return;
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+
+    if (Number.parseInt(respuestaUsuario) !== numero1 + numero2) {
+      alert("Respuesta incorrecta, por favor intente nuevamente.")
+      setIsSubmitting(false)
+      return
     }
-    const asunto = encodeURIComponent("Consulta sobre la quinta publicada");
+
+    const asunto = encodeURIComponent("Consulta sobre la propiedad en Pringles 126")
     const cuerpoMensaje = encodeURIComponent(
-      `Hola, me interesa la quinta publicada.\n\nNombre: ${nombre}\nEmail: ${correo}\nMensaje: ${mensaje}`
-    );
-    const mailtoLink = `mailto:${emailDestino}?subject=${asunto}&body=${cuerpoMensaje}`;
-    window.location.href = mailtoLink;
-  };
+      `Hola, me interesa la propiedad publicada en Pringles 126, San Nicolás.\n\nNombre: ${nombre}\nEmail: ${correo}\nMensaje: ${mensaje}\n\n¡Espero su respuesta!`,
+    )
+
+    const mailtoLink = `mailto:${emailDestino}?subject=${asunto}&body=${cuerpoMensaje}`
+
+    // Simular delay para mostrar loading
+    setTimeout(() => {
+      window.location.href = mailtoLink
+      setShowSuccess(true)
+      setIsSubmitting(false)
+
+      // Reset form after success
+      setTimeout(() => {
+        setNombre("")
+        setCorreo("")
+        setMensaje("")
+        setRespuestaUsuario("")
+        setShowSuccess(false)
+        // Generate new math question
+        setNumero1(Math.floor(Math.random() * 10) + 1)
+        setNumero2(Math.floor(Math.random() * 10) + 1)
+      }, 2000)
+    }, 1000)
+  }
+
+  const handleWhatsAppContact = () => {
+    const phoneNumber = "5493364123456" // Reemplazar con el número real
+    const message = encodeURIComponent(
+      `Hola! Me interesa la propiedad en Pringles 126, San Nicolás. ¿Podrían darme más información?`,
+    )
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
+  }
 
   return (
-    <div className="contact-card">
-      <h2>Contacto Directo</h2>
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <input
-          className="input-field"
-          type="text"
-          placeholder="Nombre"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          required
-        />
-        <input
-          className="input-field"
-          type="email"
-          placeholder="Correo Electrónico"
-          value={correo}
-          onChange={(e) => setCorreo(e.target.value)}
-          required
-        />
-        <textarea
-          className="textarea-field"
-          placeholder="Escribe tu mensaje"
-          value={mensaje}
-          onChange={(e) => setMensaje(e.target.value)}
-          required
-        />
-        <input
-          className="input-field"
-          type="number"
-          placeholder={`¿Cuánto es ${numero1} + ${numero2}?`}
-          value={respuestaUsuario}
-          onChange={(e) => setRespuestaUsuario(e.target.value)}
-          required
-        />
-        <button className="submit-button" type="submit">
-          Enviar por Correo
-        </button>
-      </form>
+    <div className="contact-modern-container">
+      <div className="contact-header">
+        <div className="contact-icon-container">
+          <Mail className="contact-main-icon" />
+        </div>
+        <h2 className="contact-title">Contacto Directo</h2>
+        <p className="contact-subtitle">Completa el formulario y nos pondremos en contacto contigo</p>
+      </div>
+
+      {showSuccess ? (
+        <div className="success-message">
+          <div className="success-icon">✓</div>
+          <h3>¡Mensaje enviado!</h3>
+          <p>Se abrió tu cliente de correo. Gracias por tu interés.</p>
+        </div>
+      ) : (
+        <form className="contact-form-modern" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <div className="input-container">
+              <User className="input-icon" />
+              <input
+                className="input-field-modern"
+                type="text"
+                placeholder="Tu nombre completo"
+                value={nombre}
+                onChange={(e) => setNombre(e.target.value)}
+                required
+                disabled={isSubmitting}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-container">
+              <Mail className="input-icon" />
+              <input
+                className="input-field-modern"
+                type="email"
+                placeholder="tu@email.com"
+                value={correo}
+                onChange={(e) => setCorreo(e.target.value)}
+                required
+                disabled={isSubmitting}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="input-container textarea-container">
+              <MessageSquare className="input-icon textarea-icon" />
+              <textarea
+                className="textarea-field-modern"
+                placeholder="Cuéntanos qué te interesa de esta propiedad..."
+                value={mensaje}
+                onChange={(e) => setMensaje(e.target.value)}
+                required
+                disabled={isSubmitting}
+                rows={4}
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <div className="math-question">
+              <Calculator className="input-icon" />
+              <div className="math-content">
+                <label className="math-label">Verificación de seguridad:</label>
+                <div className="math-equation">
+                  <span className="equation-text">
+                    ¿Cuánto es {numero1} + {numero2}?
+                  </span>
+                  <input
+                    className="math-input"
+                    type="number"
+                    placeholder="Respuesta"
+                    value={respuestaUsuario}
+                    onChange={(e) => setRespuestaUsuario(e.target.value)}
+                    required
+                    disabled={isSubmitting}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="form-actions">
+            <button
+              className={`submit-button-modern ${isSubmitting ? "loading" : ""}`}
+              type="submit"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                <>
+                  <div className="loading-spinner"></div>
+                  Enviando...
+                </>
+              ) : (
+                <>
+                  <Send className="button-icon" />
+                  Enviar Consulta
+                </>
+              )}
+            </button>
+
+            <button type="button" className="whatsapp-button" onClick={handleWhatsAppContact} disabled={isSubmitting}>
+              <Phone className="button-icon" />
+              WhatsApp
+            </button>
+          </div>
+        </form>
+      )}
+
+      <div className="contact-info">
+        
+        <div className="info-item">
+          <Mail className="info-icon" />
+          <span>{emailDestino}</span>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
