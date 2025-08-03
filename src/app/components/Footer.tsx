@@ -15,9 +15,9 @@ export default function Footer() {
   }
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "5493364123456" // Reemplazar con el número real
+    const phoneNumber = "5493364187524" // Reemplazar con el número real
     const message = encodeURIComponent(
-      "Hola! Me interesa la propiedad en Pringles 126, San Nicolás. ¿Podrían darme más información?"
+      "Hola! Me interesa la propiedad en Pringles al 100, San Nicolás. ¿Podrían darme más información?"
     )
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }

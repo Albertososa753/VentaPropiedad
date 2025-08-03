@@ -1,55 +1,63 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import { ChevronDown, MapPin, Home, Ruler, Star } from "lucide-react"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { ChevronDown, MapPin, Home, Ruler, Star } from "lucide-react";
 
 interface PropertyHeroProps {
-  images: string[]
-  excludeOnMobile?: string[]
+  images: string[];
+  excludeOnMobile?: string[];
 }
 
-export default function PropertyHero({ images, excludeOnMobile = [] }: PropertyHeroProps) {
-  const [currentImage, setCurrentImage] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-  const [isLoaded, setIsLoaded] = useState(false)
+export default function PropertyHero({
+  images,
+  excludeOnMobile = [],
+}: PropertyHeroProps) {
+  const [currentImage, setCurrentImage] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768)
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
-  const filteredImages = isMobile ? images.filter((img) => !excludeOnMobile.includes(img)) : images
+  const filteredImages = isMobile
+    ? images.filter((img) => !excludeOnMobile.includes(img))
+    : images;
 
   useEffect(() => {
-    if (filteredImages.length === 0) return
+    if (filteredImages.length === 0) return;
 
     const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % filteredImages.length)
-    }, 4000)
+      setCurrentImage((prev) => (prev + 1) % filteredImages.length);
+    }, 4000);
 
-    return () => clearInterval(interval)
-  }, [filteredImages])
+    return () => clearInterval(interval);
+  }, [filteredImages]);
 
   useEffect(() => {
-    setIsLoaded(true)
-  }, [])
+    setIsLoaded(true);
+  }, []);
 
   const handleScrollToProperty = () => {
-    const propertySection = document.getElementById("inicio")
+    const propertySection = document.getElementById("inicio");
     if (propertySection) {
-      propertySection.scrollIntoView({ behavior: "smooth" })
+      propertySection.scrollIntoView({ behavior: "smooth" });
     }
-  }
+  };
 
   return (
     <section className="hero-container">
       {/* Background Images */}
       <div className="hero-background">
         {filteredImages.map((image, index) => (
-          <div key={index} className={`hero-image ${index === currentImage ? "active" : ""}`}>
+          <div
+            key={index}
+            className={`hero-image ${index === currentImage ? "active" : ""}`}
+          >
             <Image
               src={image || "/placeholder.svg"}
               alt={`Propiedad imagen ${index + 1}`}
@@ -71,8 +79,10 @@ export default function PropertyHero({ images, excludeOnMobile = [] }: PropertyH
         </div>
 
         <h1 className="hero-title">
-          <span className="title-line">CASA EN VENTA</span>
-          <span className="title-highlight">DUEÑO DIRECTO</span>
+          <span className="title-line">Casa Céntrica en Venta</span>
+          <span className="title-highlight">
+             Excelente Ubicación
+          </span>
         </h1>
 
         <div className="hero-location">
@@ -91,12 +101,13 @@ export default function PropertyHero({ images, excludeOnMobile = [] }: PropertyH
           </div>
         </div>
 
-        <div className="hero-actions">
-    
-        
-        </div>
+        <div className="hero-actions"></div>
 
-        <button className="scroll-indicator" onClick={handleScrollToProperty} aria-label="Ver más información">
+        <button
+          className="scroll-indicator"
+          onClick={handleScrollToProperty}
+          aria-label="Ver más información"
+        >
           <ChevronDown className="scroll-icon" />
         </button>
       </div>
@@ -113,5 +124,5 @@ export default function PropertyHero({ images, excludeOnMobile = [] }: PropertyH
         ))}
       </div>
     </section>
-  )
+  );
 }

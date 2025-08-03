@@ -8,8 +8,14 @@ export default function Hero() {
       {/* Title and features section */}
       <section className="bg-white p-6 shadow-md rounded-md border border-gray-200 mb-8">
         <div className="mb-4">
-          <h1 className="text-2xl font-bold">Oportunidad! Casa a refaccionar de 3 dormitorios</h1>
-          <p className="text-gray-500">Anchorena 469, Rosario - USD 29.000</p>
+          <h1 className="text-2xl font-bold">
+            Casa Céntrica en Venta en San Nicolás – Dueño Directo
+          </h1>
+          <p className="text-gray-500">
+            Venta de casa con terreno de 10x40 ideal para pileta. Excelente
+            ubicación en el centro de San Nicolás. Dueño directo, sin
+            comisiones.
+          </p>
         </div>
         <div className="grid grid-cols-3 gap-4 text-gray-700">
           <div className="flex items-center">
@@ -52,9 +58,8 @@ export default function Hero() {
       <section className="bg-white p-6 shadow-md rounded-md border border-gray-200">
         <h2 className="text-xl font-semibold mb-4">Descripción</h2>
         <p>
-          Ingresamos a la propiedad por un pasillo único. Encontramos un comedor que se conecta hacia una cocina separada,
-          la cual cuenta con ventilación y luz natural. La propiedad requiere refacciones generales, ideal para inversores
-          o quien busque remodelar a gusto.
+          Venta de casa con terreno de 10x40 ideal para pileta. Excelente
+          ubicación en el centro de San Nicolás. Dueño directo, sin comisiones.
         </p>
       </section>
     </main>

@@ -1,3 +1,5 @@
+// app/layout.tsx
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -13,36 +15,46 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title:
-    "Casa a la Venta, San Nicolás de los Arroyos | Dueño Directo",
+  title: "Casa Céntrica en Venta en San Nicolás | Dueño Directo con Terreno",
   description:
-    "Venta de , San Nicolás de los Arroyos. Dueño directo, terreno de 10x40, 2 dormitorios, garage para 2 autos, lista para ampliar. Oportunidad única.",
-  keywords:
-    "casa a la venta San Nicolás, propiedad en venta San Nicolás, dueño directo San Nicolás, venta casa , propiedades San Nicolás",
+    "Casa céntrica en venta en San Nicolás, terreno de 10x40 ideal para pileta. Excelente ubicación. Dueño directo, sin comisiones inmobiliarias.",
+  keywords: [
+    "casa céntrica en venta San Nicolás",
+    "casa en venta San Nicolás dueño directo",
+    "venta casa céntrica San Nicolás",
+    "propiedad en venta con terreno San Nicolás",
+    "casa con terreno para pileta San Nicolás",
+  ],
   verification: {
     google: "0TGkKSIGTn_Zw6It3mBplTGrqZ3B8vy8EVDhA2UQqjU",
   },
   openGraph: {
-    title: "Casa a la Venta, San Nicolás | Dueño Directo",
+    title: "Casa Céntrica con Terreno para Pileta | San Nicolás | Dueño Directo",
     description:
-      "Oportunidad de comprar casa, San Nicolás de los Arroyos. Terreno amplio, dos dormitorios, garage doble. Venta directa.",
+      "Oportunidad única: casa céntrica en San Nicolás con terreno de 10x40 ideal para pileta. Dueño directo, sin comisiones.",
     type: "website",
     locale: "es_AR",
     url: "https://venta-propiedad.vercel.app",
+  },
+  metadataBase: new URL("https://venta-propiedad.vercel.app"),
+  alternates: {
+    canonical: "https://venta-propiedad.vercel.app",
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="es">
       <head>
         <meta
           name="google-site-verification"
           content="0TGkKSIGTn_Zw6It3mBplTGrqZ3B8vy8EVDhA2UQqjU"
+        />
+        <link
+          rel="canonical"
+          href="https://venta-propiedad.vercel.app/"
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>

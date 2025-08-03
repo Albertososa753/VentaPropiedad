@@ -86,7 +86,7 @@ export default function Nav() {
               <div className="mobile-brand">
                 <MapPin className="mobile-brand-icon" />
                 <div>
-                  <div className="mobile-brand-name">Pringles 126</div>
+                  <div className="mobile-brand-name">Pringles al 100</div>
                   <div className="mobile-brand-subtitle">San Nicolás de los Arroyos</div>
                 </div>
               </div>

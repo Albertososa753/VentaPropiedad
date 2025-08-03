@@ -32,9 +32,9 @@ export default function ContactForm() {
       return
     }
 
-    const asunto = encodeURIComponent("Consulta sobre la propiedad en Pringles 126")
+    const asunto = encodeURIComponent("Consulta sobre la propiedad en Pringles al 100")
     const cuerpoMensaje = encodeURIComponent(
-      `Hola, me interesa la propiedad publicada en Pringles 126, San Nicolás.\n\nNombre: ${nombre}\nEmail: ${correo}\nMensaje: ${mensaje}\n\n¡Espero su respuesta!`,
+      `Hola, me interesa la propiedad publicada en Pringles al 100, San Nicolás.\n\nNombre: ${nombre}\nEmail: ${correo}\nMensaje: ${mensaje}\n\n¡Espero su respuesta!`,
     )
 
     const mailtoLink = `mailto:${emailDestino}?subject=${asunto}&body=${cuerpoMensaje}`
@@ -60,9 +60,9 @@ export default function ContactForm() {
   }
 
   const handleWhatsAppContact = () => {
-    const phoneNumber = "5493364123456" // Reemplazar con el número real
+    const phoneNumber = "5493364187524" // Reemplazar con el número real
     const message = encodeURIComponent(
-      `Hola! Me interesa la propiedad en Pringles 126, San Nicolás. ¿Podrían darme más información?`,
+      `Hola! Me interesa la propiedad en Pringles al 100, San Nicolás. ¿Podrían darme más información?`,
     )
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }
