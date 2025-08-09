@@ -60,7 +60,7 @@ export default function PropertyHero({
           >
             <Image
               src={image || "/placeholder.svg"}
-              alt={`Propiedad imagen ${index + 1}`}
+              alt="Casa céntrica en venta en San Nicolás dueño directo"
               fill
               priority={index === 0}
               quality={100}
@@ -80,9 +80,7 @@ export default function PropertyHero({
 
         <h1 className="hero-title">
           <span className="title-line">Casa Céntrica en Venta</span>
-          <span className="title-highlight">
-             Excelente Ubicación
-          </span>
+          <span className="title-highlight">Excelente Ubicación</span>
         </h1>
 
         <div className="hero-location">

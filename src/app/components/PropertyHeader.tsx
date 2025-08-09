@@ -1,56 +1,60 @@
-"use client"
+"use client";
 
-import { Ruler, Home, Bath, Car, Hammer, MapPin, Star } from "lucide-react"
+import { Ruler, Home, Bath, Car, Hammer, MapPin, Star } from "lucide-react";
 
 export default function PropertyHeader() {
   const features = [
-    { icon: Ruler, text: "Terreno 10x40", highlight: true },
-    { icon: Home, text: "2 Dormitorios" },
-    { icon: Bath, text: "1 Baño" },
-    { icon: Car, text: "Garage 2 Autos" },
-    { icon: Hammer, text: "Preparado para una futura ampliación superior.", highlight: true },
-  ]
+    { icon: Ruler, text: "Terreno 10x40 metros", highlight: true },
+    { icon: Home, text: "2 dormitorios amplios" },
+    { icon: Bath, text: "1 baño completo" },
+    { icon: Car, text: "Garage para 2 autos" },
+    { icon: Hammer, text: "Preparada para futura ampliación superior", highlight: true },
+  ];
 
   return (
-    <section className="property-header-modern">
+    <header className="property-header-modern" aria-labelledby="property-title">
       <div className="header-container">
+        
         {/* Badge */}
-        <div className="property-badge">
-          <Star className="badge-icon" />
-          <span>OPORTUNIDAD ÚNICA</span>
+        <div className="property-badge" aria-label="Oportunidad destacada">
+          <Star className="badge-icon" aria-hidden="true" />
+          <span>Oportunidad Única</span>
         </div>
 
         {/* Title */}
         <div className="property-title-container">
-          <div className="location-indicator">
+          <div className="location-indicator" aria-hidden="true">
             <MapPin className="location-icon" />
           </div>
-          <h2 className="property-main-title">
-            <span className="address-line">ZONA CÉNTRICA</span>
-            <span className="city-line">SAN NICOLÁS DE LOS ARROYOS</span>
+          <h1 id="property-title" className="property-main-title">
+            <span className="address-line">Casa Céntrica en Venta</span>
+            <span className="city-line">San Nicolás de los Arroyos</span>
             <span className="price-line">Consultar precio</span>
-          </h2>
+          </h1>
+          <p className="property-subtitle">
+            Propiedad ubicada en zona céntrica, ideal para vivienda familiar o inversión.
+          </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="features-grid-modern">
+        {/* Features */}
+        <ul className="features-grid-modern" role="list">
           {features.map((feature, index) => {
-            const IconComponent = feature.icon
+            const IconComponent = feature.icon;
             return (
-              <div
+              <li
                 key={index}
                 className={`feature-card ${feature.highlight ? "highlight" : ""}`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="feature-icon-container">
-                  <IconComponent className="feature-icon" />
+                  <IconComponent className="feature-icon" aria-hidden="true" />
                 </div>
                 <span className="feature-text">{feature.text}</span>
-              </div>
-            )
+              </li>
+            );
           })}
-        </div>
+        </ul>
       </div>
-    </section>
-  )
+    </header>
+  );
 }

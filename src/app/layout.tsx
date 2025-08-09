@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Casa Céntrica en Venta en San Nicolás | Dueño Directo con Terreno",
+  title: "Casa Céntrica en Venta en San Nicolás | ",
   description:
     "Casa céntrica en venta en San Nicolás, terreno de 10x40 ideal para pileta. Excelente ubicación. Dueño directo, sin comisiones inmobiliarias.",
   keywords: [
@@ -26,10 +26,11 @@ export const metadata: Metadata = {
     "casa con terreno para pileta San Nicolás",
   ],
   verification: {
-    google: "0TGkKSIGTn_Zw6It3mBplTGrqZ3B8vy8EVDhA2UQqjU",
+    google: "rdUUjjF90FasOrDutboztFNSPi9dcf9AY6iavEZYlik",
   },
   openGraph: {
-    title: "Casa Céntrica con Terreno para Pileta | San Nicolás | Dueño Directo",
+    title:
+      "Casa Céntrica con Terreno para Pileta | San Nicolás | Dueño Directo",
     description:
       "Oportunidad única: casa céntrica en San Nicolás con terreno de 10x40 ideal para pileta. Dueño directo, sin comisiones.",
     type: "website",
@@ -50,12 +51,9 @@ export default function RootLayout({
       <head>
         <meta
           name="google-site-verification"
-          content="0TGkKSIGTn_Zw6It3mBplTGrqZ3B8vy8EVDhA2UQqjU"
+          content="rdUUjjF90FasOrDutboztFNSPi9dcf9AY6iavEZYlik"
         />
-        <link
-          rel="canonical"
-          href="https://venta-propiedad1.vercel.app/"
-        />
+        <link rel="canonical" href="https://venta-propiedad1.vercel.app/" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
