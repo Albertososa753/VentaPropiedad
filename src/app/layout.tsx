@@ -30,9 +30,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Casa Céntrica con Terreno para Pileta | San Nicolás | Dueño Directo",
+      "Venta de casa en zona céntrica | San Nicolás | Dueño Directo",
     description:
-      "Oportunidad única: casa céntrica en San Nicolás con terreno de 10x40 ideal para pileta. Dueño directo, sin comisiones.",
+      "Oportunidad única: Venta de casa en zona céntrica. Dueño directo, sin comisiones.",
     type: "website",
     locale: "es_AR",
     url: "https://venta-propiedad1.vercel.app",
