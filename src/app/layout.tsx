@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Casa Céntrica en Venta en San Nicolás | ",
+  title: "Venta de casa en zona céntrica | San Nicolás | Dueño directo ",
   description:
     "Casa céntrica en venta en San Nicolás, terreno de 10x40 ideal para pileta. Excelente ubicación. Dueño directo, sin comisiones inmobiliarias.",
   keywords: [
