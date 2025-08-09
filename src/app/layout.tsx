@@ -34,11 +34,11 @@ export const metadata: Metadata = {
       "Oportunidad única: casa céntrica en San Nicolás con terreno de 10x40 ideal para pileta. Dueño directo, sin comisiones.",
     type: "website",
     locale: "es_AR",
-    url: "https://venta-propiedad.vercel.app",
+    url: "https://venta-propiedad1.vercel.app",
   },
-  metadataBase: new URL("https://venta-propiedad.vercel.app"),
+  metadataBase: new URL("https://venta-propiedad1.vercel.app"),
   alternates: {
-    canonical: "https://venta-propiedad.vercel.app",
+    canonical: "https://venta-propiedad1.vercel.app",
   },
 };
 
@@ -54,7 +54,7 @@ export default function RootLayout({
         />
         <link
           rel="canonical"
-          href="https://venta-propiedad.vercel.app/"
+          href="https://venta-propiedad1.vercel.app/"
         />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>

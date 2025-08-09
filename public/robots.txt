@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://venta-propiedad.vercel.app
+Host: https://venta-propiedad1.vercel.app
 
 # Sitemaps
-Sitemap: https://venta-propiedad.vercel.app/sitemap.xml
+Sitemap: https://venta-propiedad1.vercel.app/sitemap.xml

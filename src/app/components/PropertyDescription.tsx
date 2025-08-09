@@ -34,7 +34,7 @@ export default function PropertyDetails() {
       icon: TreePine,
       title: "Entorno",
       content:
-        "Situada en Barrio Los Cedros, una zona tranquila y cómoda de San Nicolás, cerca de todos los servicios esenciales. Ideal para vivir en familia o como inversión.",
+        "Situada en Zona Céntrica, una zona tranquila y cómoda de San Nicolás, cerca de todos los servicios esenciales. Ideal para vivir en familia o como inversión.",
     },
     {
       icon: TrendingUp,
